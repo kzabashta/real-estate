@@ -12,7 +12,6 @@ from oauth2client import tools
 from bs4 import BeautifulSoup
 
 import logging
-logger = logging.getLogger(__name__)
 
 try:
     import argparse
@@ -26,9 +25,10 @@ class EmailExtractor:
         self.client_secret_file = client_secret_file
         self.application_name = application_name
         self.dest_dir_name = dest_dir_name
+        self.logger = logging.getLogger(__name__)
 
     def get_credentials(self):
-        logger.debug('Getting gmail credentials from secure store')
+        self.logger.debug('Getting gmail credentials from secure store')
         home_dir = os.path.expanduser('~')
         credential_dir = os.path.join(home_dir, '.credentials')
         if not os.path.exists(credential_dir):
@@ -41,11 +41,11 @@ class EmailExtractor:
         if not credentials or credentials.invalid:
             flow = client.flow_from_clientsecrets(self.client_secret_file, self.scopes)
             flow.user_agent = self.application_name
-            if flags:
+            if flag:
                 credentials = tools.run_flow(flow, store, flags)
             else: # Needed only for compatability with Python 2.6
                 credentials = tools.run(flow, store)
-            print('Storing credentials to ' + credential_path)
+            self.logger.info('Storing credentials to %s', credential_path)
         return credentials
 
     def get_label_id(self, service):
@@ -57,12 +57,14 @@ class EmailExtractor:
                 return label['id']
 
     def get_message_ids(self, service, labelId):
+        self.logger.debug('Getting messages from labelId %s', labelId)
         results = service.users().messages().list(userId='me', labelIds=labelId).execute()
         messages = results.get('messages', [])
-
+        self.logger.debug('Found %d messages', len(messages))
         return messages
 
     def get_message(self, service, messageId):
+        self.logger.debug('Getting messageId %s', messageId)
         message = service.users().messages().get(userId='me', id=messageId, format='raw').execute()
 
         msg_str = base64.urlsafe_b64decode(message['raw'].encode('ASCII'))
@@ -78,14 +80,7 @@ class EmailExtractor:
             if part.get_content_type() == 'text/html':
                 return part.get_payload(decode=True)
 
-    def run(self):
-        credentials = self.get_credentials()
-        http = credentials.authorize(httplib2.Http())
-        service = discovery.build('gmail', 'v1', http=http)
-
-        labelId = self.get_label_id(service)
-        messages = self.get_message_ids(service, labelId)
-
+    def process_messages(self, service, messages):
         for message in messages:
             msg_full = self.get_message(service, message['id'])
             date = self.get_message_date(msg_full)
@@ -97,22 +92,35 @@ class EmailExtractor:
             try:
                 os.makedirs(dest_dir)
             except OSError:
-                print("Skipping {} as it exists".format(date))
+                self.logger.warn('Skipping %s as it exists', date)
                 continue # already exists
 
-            print("Processing date {}".format(date))
+            self.logger.info('Processing date %s', date)
 
-            for link in soup.find_all('a'):
+            links = soup.find_all('a')
+            for link in links:
+                part_path = os.path.join(dest_dir, link.contents[0])
+                os.makedirs(part_path)
+                self.logger.debug('Created direcotry %s', part_path)
+                link_path = link['href']
+                self.logger.debug('Downloading HTML page from %s', link_path)
                 try:
-                    part_path = os.path.join(dest_dir, link.contents[0])
-                    os.makedirs(part_path)
-                    
-                    response = urllib2.urlopen(link['href'])
+                    response = urllib2.urlopen(link_path)
                     html = response.read()
 
-                    with open(os.path.join(part_path, 'index.html'), "w") as text_file:
+                    with open(os.path.join(part_path, 'index.html'), 'w') as text_file:
                         text_file.write(html)
+                except urllib2.HTTPError as e:
+                    self.logger.error('Encountered an error while downloading %s', e.strerror)
 
-                except:
-                    continue
+
+    def run(self):
+        credentials = self.get_credentials()
+        http = credentials.authorize(httplib2.Http())
+        service = discovery.build('gmail', 'v1', http=http)
+        labelId = self.get_label_id(service)
+        messages = self.get_message_ids(service, labelId)
+        self.process_messages(service, messages)
+
+        
 

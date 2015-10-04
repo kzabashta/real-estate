@@ -1,4 +1,5 @@
 import logging
+import os
 from logging.config import fileConfig
 
 from parser.scraper import Scraper
@@ -12,14 +13,17 @@ DEST_DIR_NAME = 'raw'
 def main():
 	fileConfig('logging_config.ini')
 	logger = logging.getLogger()
-
 	extractor = EmailExtractor(SCOPES, CLIENT_SECRET_FILE, APPLICATION_NAME, DEST_DIR_NAME)
-	#extractor.run()
+	
+	scraper = Scraper()
 
-	with open ("index.html", "r") as myfile:
-	    html_doc = myfile.read().replace('\n', '')
-
-	scraper = Scraper(html_doc)	
+	for dirName, subdirList, fileList in os.walk(DEST_DIR_NAME):
+	    for fName in fileList:
+	    	fullPath = os.path.join(dirName, fName)
+	    	with open(fullPath, 'r') as fHandle:
+	    		logger.debug('Procesing %s', fullPath)
+	    		html_doc = fHandle.read().replace('\n', '')
+	    		scaper.scrape(html_doc)
 
 if __name__ == '__main__':
 	main()
