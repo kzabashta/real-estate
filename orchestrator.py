@@ -14,7 +14,7 @@ def main():
 	fileConfig('logging_config.ini')
 	logger = logging.getLogger()
 	extractor = EmailExtractor(SCOPES, CLIENT_SECRET_FILE, APPLICATION_NAME, 'raw')
-	extractor.run()
+	#extractor.run()
 	
 	scraper = Scraper()
 
