@@ -11,7 +11,7 @@ class Scraper:
 		if len(tables) == 0:
 			return []
 		
-		table = tables[0]
+		table = tables[0] # there should be only one table
 
 		for row in table.find_all('tr'):
 			print row

@@ -100,8 +100,11 @@ class EmailExtractor:
             links = soup.find_all('a')
             for link in links:
                 part_path = os.path.join(dest_dir, link.contents[0])
-                os.makedirs(part_path)
-                self.logger.debug('Created direcotry %s', part_path)
+                try:
+                    os.makedirs(part_path)
+                    self.logger.debug('Created direcotry %s', part_path)
+                except OSError as e:
+                    self.logger.error('Directory %s already exists: %s', part_path, e.strerror)
                 link_path = link['href']
                 self.logger.debug('Downloading HTML page from %s', link_path)
                 try:

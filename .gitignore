@@ -60,3 +60,4 @@ target/
 # scraped html files
 raw/
 email_utils/client_secret.json
+test/

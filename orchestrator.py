@@ -13,7 +13,8 @@ DEST_DIR_NAME = 'test'
 def main():
 	fileConfig('logging_config.ini')
 	logger = logging.getLogger()
-	extractor = EmailExtractor(SCOPES, CLIENT_SECRET_FILE, APPLICATION_NAME, DEST_DIR_NAME)
+	extractor = EmailExtractor(SCOPES, CLIENT_SECRET_FILE, APPLICATION_NAME, 'raw')
+	extractor.run()
 	
 	scraper = Scraper()
 
