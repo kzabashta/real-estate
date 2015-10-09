@@ -8,13 +8,13 @@ from email_utils.email_extractor import EmailExtractor
 SCOPES = 'https://www.googleapis.com/auth/gmail.readonly'
 CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'Real Estate'
-DEST_DIR_NAME = 'test'
+DEST_DIR_NAME = 'raw'
 
 def main():
 	fileConfig('logging_config.ini')
 	logger = logging.getLogger()
 	extractor = EmailExtractor(SCOPES, CLIENT_SECRET_FILE, APPLICATION_NAME, DEST_DIR_NAME)
-	#extractor.run()
+	extractor.run()
 	
 	scraper = Scraper()
 
@@ -28,9 +28,9 @@ def main():
 	    		html_doc = fHandle.read().replace('\n', '')
 	    		scraper.scrape(html_doc)
 
-	    	val = raw_input('Continue? (y)')
-	    	if not (val == 'y' or val == ''):
-	    		return
+	    	#val = raw_input('Continue? (y)')
+	    	#if not (val == 'y' or val == ''):
+	    	#	return
 
 if __name__ == '__main__':
 	main()

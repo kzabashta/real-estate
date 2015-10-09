@@ -1,6 +1,7 @@
 import logging
 import json
 
+from re import sub
 from pymongo import MongoClient
 from bs4 import BeautifulSoup
 
@@ -38,18 +39,32 @@ class Scraper:
 			listing.bedrooms = sub_parts['br']
 			listing.bathrooms = sub_parts['bath_tot']
 			listing.style = sub_parts['style']
-			listing.value = sub_parts['lp_dol']
 
-
-			listing.contract_date = None
-			listing.sold_date = None
+			listing = self.enrich_listing(listing)
 
 			listings.append(listing)
 
 		return listings
 
-	def enrich_listings(listings):
-		
+	def enrich_listing(self, listing):
+		listing_detail = self.soup.find_all('div', id=listing.mls_id)[0] # there is only one
+		spans = listing_detail.find_all('span', class_='value')
+		for span in spans:
+			if span.previous_sibling == None or len(span.contents) == 0:
+				continue
+			key = span.previous_sibling.contents[0]
+			val = span.contents[0]
+
+			if key == 'Contract Date:':
+				listing.contract_date = val
+			elif key == 'Sold Date:':
+				listing.sold_date = val
+			elif key == 'List:':
+				listing.listed = int(sub(r'[^\d.]', '', val))
+			elif key == 'Sold:':
+				listing.value = int(sub(r'[^\d.]', '', val))
+
+		return listing
 
 	def update_records(self, listings):
 		client = MongoClient()

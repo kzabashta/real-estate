@@ -16,6 +16,7 @@ class Listing:
 		self.bathrooms = None
 		self.style = ''
 		self.value = 0.0
+		self.listed = 0.0
 
 	def __str__(self):
 		to_return = 'MLS ID: {}\nLONG: {}\nLAT: {}\nSTATUS: {}\nTYPE: {}\nSTYLE: {}\n'
