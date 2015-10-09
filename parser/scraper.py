@@ -1,10 +1,10 @@
 import logging
 import json
-import pymongo
+
+from pymongo import MongoClient
+from bs4 import BeautifulSoup
 
 from entities.entities import Listing
-
-from bs4 import BeautifulSoup
 
 class Scraper:
 	def __init__(self):
@@ -44,12 +44,25 @@ class Scraper:
 			listing.contract_date = None
 			listing.sold_date = None
 
+			listings.append(listing)
+
 		return listings
 
-	def update_records(listings):
-		for listing in listings:
+	def enrich_listings(listings):
+		
 
+	def update_records(self, listings):
+		client = MongoClient()
+		db = client.real_estate
+		collection = db.raw_listings
+
+		for listing in listings:
+			key = listing.mls_id
+			collection.update_one({'mls_id': key}, {"$set": listing.__dict__}, True)
+
+		self.logger.info('Updated %i records', len(listings))
 
 	def scrape(self, html_doc):
 		self.soup = BeautifulSoup(html_doc, 'html.parser')
 		listings = self.get_listings(html_doc)
+		self.update_records(listings)
