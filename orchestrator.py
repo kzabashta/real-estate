@@ -13,7 +13,7 @@ DEST_DIR_NAME = 'test'
 def main():
 	fileConfig('logging_config.ini')
 	logger = logging.getLogger()
-	extractor = EmailExtractor(SCOPES, CLIENT_SECRET_FILE, APPLICATION_NAME, 'raw')
+	extractor = EmailExtractor(SCOPES, CLIENT_SECRET_FILE, APPLICATION_NAME, DEST_DIR_NAME)
 	#extractor.run()
 	
 	scraper = Scraper()
@@ -27,6 +27,10 @@ def main():
 	    		logger.debug('Procesing %s', fullPath)
 	    		html_doc = fHandle.read().replace('\n', '')
 	    		scraper.scrape(html_doc)
+
+	    	val = raw_input('Continue? (y)')
+	    	if not (val == 'y' or val == ''):
+	    		return
 
 if __name__ == '__main__':
 	main()
