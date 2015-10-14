@@ -48,6 +48,15 @@ class Scraper:
 
 	def enrich_listing(self, listing):
 		listing_detail = self.soup.find_all('div', id=listing.mls_id)[0] # there is only one
+		photos = listing_detail.find_all('img') # there is only one
+		listing.photos = []
+		for photo in photos:
+			listing.photos.append(photo['src'])
+			if 'data-multi-photos' in photo.attrs:
+				multi_photos = json.loads(photo['data-multi-photos'])['multi-photos']
+				for multi_photo in multi_photos:
+					listing.photos.append(multi_photo['url'])
+
 		spans = listing_detail.find_all('span', class_='value')
 		for span in spans:
 			if span.previous_sibling == None or len(span.contents) == 0:
@@ -63,16 +72,22 @@ class Scraper:
 				listing.listed = int(sub(r'[^\d.]', '', val))
 			elif key == 'Sold:':
 				listing.value = int(sub(r'[^\d.]', '', val))
+			else:
+				key = key.replace(':', '')
+				key = key.replace(' ', '_')
+				key = key.lower()
+				setattr(listing, key, val)
 
 		return listing
 
 	def update_records(self, listings):
 		client = MongoClient()
 		db = client.real_estate
-		collection = db.raw_listings
+		collection = db.raws
 
 		for listing in listings:
 			key = listing.mls_id
+			print(listing.__dict__)
 			collection.update_one({'mls_id': key}, {"$set": listing.__dict__}, True)
 
 		self.logger.info('Updated %i records', len(listings))
