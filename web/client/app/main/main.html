@@ -1,0 +1,35 @@
+<div class="container">
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>MLS</th>
+				<th>Type</th>
+				<th>Sold Date</th>
+				<th>Sold Value</th>
+				<th>Address</th>
+			<tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="listing in listings">
+				<td>
+					<a href='/listing_detail/{{ listing.mls_id }}'>{{listing.mls_id}}</a>
+				</td>
+				<td>
+					{{ listing.type }}
+				</td>
+				<td>
+					<span>{{ listing.sold_date_as_date | date }}</span>
+					<span>({{ listing.days_on_market }} days)</span>
+				</td>
+				<td>
+					<span>{{ listing.value | currency:"$":0 }}</span>
+					<span class="label {{listing.difference > 0 ? 'label-success' : 'label-danger'}}">{{ listing.difference | currency:"$":0}}</span>
+				</td>
+				<td>
+					{{ listing.address }}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>

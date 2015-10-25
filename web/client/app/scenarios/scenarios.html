@@ -1,0 +1,23 @@
+<div class="container">
+	<div class="input-group">
+		<input type="text" ng-change="change()" class="form-control" ng-model="income" aria-describedby="sizing-addon2">
+		<span class="input-group-addon">income per year</span>
+	</div>
+	<div class="input-group">
+		<input type="text" ng-change="change()" class="form-control" ng-model="incomeYears" aria-describedby="sizing-addon2">
+		<span class="input-group-addon">years of secure income</span>
+	</div>
+	<div class="input-group">
+		<input type="text" ng-change="change()" class="form-control" ng-model="inheritance" aria-describedby="sizing-addon2">
+		<span class="input-group-addon">left as inheritance</span>
+	</div>
+	<div class="input-group">
+		<input type="text" ng-change="change()" class="form-control" ng-model="savings" aria-describedby="sizing-addon2">
+		<span class="input-group-addon">saved monthly</span>
+	</div>
+	<div class="input-group">
+		<input type="text" ng-change="change()" class="form-control" ng-model="years" aria-describedby="sizing-addon2">
+		<span class="input-group-addon">years of retirement</span>
+	</div>
+	<multi-line-chart data="data"></multi-line-chart>
+</div>
