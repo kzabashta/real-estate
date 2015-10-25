@@ -2,6 +2,7 @@ import logging
 import os
 from logging.config import fileConfig
 
+from pymongo import MongoClient
 from parser.scraper import Scraper
 from email_utils.email_extractor import EmailExtractor
 
@@ -12,6 +13,9 @@ DEST_DIR_NAME = 'raw'
 
 def main():
 	fileConfig('logging_config.ini')
+	client = MongoClient()
+	db = client.real_estate
+	collection = db.processed
 	logger = logging.getLogger()
 	extractor = EmailExtractor(SCOPES, CLIENT_SECRET_FILE, APPLICATION_NAME, DEST_DIR_NAME)
 	extractor.run()
@@ -23,10 +27,12 @@ def main():
 	    	if not fName.endswith('.html'):
 	    		continue
 	    	fullPath = os.path.join(dirName, fName)
-	    	with open(fullPath, 'r') as fHandle:
-	    		logger.debug('Procesing %s', fullPath)
-	    		html_doc = fHandle.read().replace('\n', '')
-	    		scraper.scrape(html_doc)
+	    	if collection.find_one({'path': fullPath}) == None:
+	    		collection.insert_one({'path': fullPath})    		
+		    	with open(fullPath, 'r') as fHandle:
+		    		logger.info('Procesing %s', fullPath)
+		    		html_doc = fHandle.read().replace('\n', '')
+		    		scraper.scrape(html_doc)
 
 if __name__ == '__main__':
 	main()
