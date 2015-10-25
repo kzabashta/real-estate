@@ -28,9 +28,5 @@ def main():
 	    		html_doc = fHandle.read().replace('\n', '')
 	    		scraper.scrape(html_doc)
 
-	    	#val = raw_input('Continue? (y)')
-	    	#if not (val == 'y' or val == ''):
-	    	#	return
-
 if __name__ == '__main__':
 	main()
