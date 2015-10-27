@@ -12,33 +12,52 @@ exports.municipalities = function(req, res) {
 };
 
 exports.aggregate_sales = function(req, res){
+  var topMunicipalities;
   Raw.aggregate(
-      [
-      {
-        $group : {
-           _id : { sold_date: "$sold_date", municipality: "$municipality"},
-           totalPrice: { $sum: "$value" },
-           soldCount: { $sum: 1 }
-        }},
+  [
         {
-        $group : {
-           _id : "$_id.sold_date",
-            municipality: { 
-                "$push": { 
-                    "municipality": "$_id.municipality",
-                    "count": "$soldCount",
-                    "price": "$totalPrice"
-                },
-            }
-        }
-      },
-      { $sort : { _id : -1}}
-   ]
-   , function(err, raws) {
+          $group : {
+             _id :  "$municipality",
+             totalPrice: { $sum: "$value" },
+             soldCount: { $sum: 1 }
+          }
+        },
+        { $sort : { soldCount : -1}},
+        { $limit: 7}
+  ], function(err, raws) {
       if(err) { return handleError(res, err); }
-      return res.status(200).json(raws);
-     }
-  )
+      topMunicipalities = raws.map(function(raw){return raw._id});
+
+      Raw.aggregate(
+        [
+          {$match : { municipality : {$in: topMunicipalities }}},
+          {
+            $group : {
+               _id : { sold_date: "$sold_date", municipality: "$municipality"},
+               totalPrice: { $sum: "$value" },
+               soldCount: { $sum: 1 }
+            }},
+            {
+            $group : {
+               _id : "$_id.sold_date",
+                municipality: { 
+                    "$push": { 
+                        "municipality": "$_id.municipality",
+                        "count": "$soldCount",
+                        "price": "$totalPrice"
+                    },
+                }
+            }
+          },
+          { $sort : { _id : -1}}
+       ]
+       , function(err, raws) {
+          if(err) { return handleError(res, err); }
+          return res.status(200).json(raws);
+         }
+      );
+    }
+  );
 }
 
 // Get list of raws

@@ -80,19 +80,20 @@ class Scraper:
 
 		return listing
 
-	def update_records(self, listings):
+	def update_records(self, listings, full_path):
 		client = MongoClient()
 		db = client.real_estate
 		collection = db.raws
 
 		for listing in listings:
 			key = listing.mls_id
+			listing.source = full_path
 			print(listing.__dict__)
 			collection.update_one({'mls_id': key}, {"$set": listing.__dict__}, True)
 
 		self.logger.info('Updated %i records', len(listings))
 
-	def scrape(self, html_doc):
+	def scrape(self, html_doc, full_path):
 		self.soup = BeautifulSoup(html_doc, 'html.parser')
 		listings = self.get_listings(html_doc)
-		self.update_records(listings)
+		self.update_records(listings, full_path)

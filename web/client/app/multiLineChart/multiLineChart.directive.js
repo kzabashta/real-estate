@@ -36,7 +36,7 @@ angular.module('webApp')
           	d3.select("svg").remove();
           	if(!data)
           		return;
-			var margin = {top: 20, right: 80, bottom: 30, left: 50},
+			var margin = {top: 20, right: 80, bottom: 50, left: 50},
 			    width = 960 - margin.left - margin.right,
 			    height = 500 - margin.top - margin.bottom;
 
@@ -74,17 +74,12 @@ angular.module('webApp')
 
 			  data.forEach(function(d) {
 			  	d.municipality.forEach(function(muni){
-			  		if(keys.indexOf(muni.municipality === -1))
+			  		if(keys.indexOf(muni.municipality) === -1)
 			  			keys.push(muni.municipality);
 			  	});
 
-			  	/**var format = d3.time.format("%Y-%m-%d");
-			  	var date = new Date(d._id);
-			  	d.date = format(date);
-			  	d.date = d3.time.format("%Y%m%d").parse(d.date);
-			  	**/
 			  	d.date = new Date(d._id);
-			  	if(newData.length < 30)
+			  	//if(newData.length < 30)
 			  		newData.push(d)
 			  });
 
@@ -141,12 +136,20 @@ angular.module('webApp')
 			      .attr("class", "line")
 			      .attr("d", function(d) { return line(d.values); })
 			      .style("stroke", function(d) { return color(d.name); });
-				city.append("text")
-				      .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
-				      .attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.temperature) + ")"; })
-				      .attr("x", 3)
-				      .attr("dy", ".35em")
-				      .text(function(d) { return d.name; });
+
+				var legendSpace = width/keys.length;
+
+				keys.forEach(function(d,i) {
+					console.log(d)
+					svg.append("text")                                    // *******
+		            .attr("x", (legendSpace/2)+i*legendSpace) // spacing // ****
+		            .attr("y", height + (margin.bottom/2)+ 20)         // *******
+		            .attr("class", "legend")    // style the legend   // *******
+		            .style("fill", function() { // dynamic colours    // *******
+		                return color(d); })             // *******
+		            .text(d); 
+				});
+
           };
         });
       }}

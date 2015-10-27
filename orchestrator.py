@@ -32,7 +32,7 @@ def main():
 		    	with open(fullPath, 'r') as fHandle:
 		    		logger.info('Procesing %s', fullPath)
 		    		html_doc = fHandle.read().replace('\n', '')
-		    		scraper.scrape(html_doc)
+		    		scraper.scrape(html_doc, fullPath)
 
 if __name__ == '__main__':
 	main()
