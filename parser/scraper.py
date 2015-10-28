@@ -1,6 +1,8 @@
 import logging
 import json
 
+from datetime import datetime
+
 from re import sub
 from pymongo import MongoClient
 from bs4 import BeautifulSoup
@@ -65,9 +67,9 @@ class Scraper:
 			val = span.contents[0]
 
 			if key == 'Contract Date:':
-				listing.contract_date = val
+				listing.contract_date = datetime.strptime(val, "%m/%d/%Y")
 			elif key == 'Sold Date:':
-				listing.sold_date = val
+				listing.sold_date = datetime.strptime(val, "%m/%d/%Y")
 			elif key == 'List:':
 				listing.listed = int(sub(r'[^\d.]', '', val))
 			elif key == 'Sold:':
