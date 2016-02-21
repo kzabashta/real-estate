@@ -61,3 +61,5 @@ target/
 raw/
 email_utils/client_secret.json
 test/
+
+client_secret.json

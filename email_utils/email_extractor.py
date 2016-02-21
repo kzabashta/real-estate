@@ -41,7 +41,7 @@ class EmailExtractor:
         if not credentials or credentials.invalid:
             flow = client.flow_from_clientsecrets(self.client_secret_file, self.scopes)
             flow.user_agent = self.application_name
-            if flag:
+            if flags:
                 credentials = tools.run_flow(flow, store, flags)
             else: # Needed only for compatability with Python 2.6
                 credentials = tools.run(flow, store)
@@ -99,22 +99,27 @@ class EmailExtractor:
 
             links = soup.find_all('a')
             for link in links:
-                part_path = os.path.join(dest_dir, link.contents[0])
                 try:
-                    os.makedirs(part_path)
-                    self.logger.debug('Created direcotry %s', part_path)
-                except OSError as e:
-                    self.logger.error('Directory %s already exists: %s', part_path, e.strerror)
-                link_path = link['href']
-                self.logger.debug('Downloading HTML page from %s', link_path)
-                try:
-                    response = urllib2.urlopen(link_path)
-                    html = response.read()
+                    part_path = os.path.join(dest_dir, link.contents[0])
+                    try:
+                        os.makedirs(part_path)
+                        self.logger.debug('Created direcotry %s', part_path)
+                    except OSError as e:
+                        self.logger.error('Directory %s already exists: %s', part_path, e.strerror)
+                    link_path = link['href']
+                    self.logger.debug('Downloading HTML page from %s', link_path)
+                    try:
+                        response = urllib2.urlopen(link_path)
+                        html = response.read()
 
-                    with open(os.path.join(part_path, 'index.html'), 'w') as text_file:
-                        text_file.write(html)
-                except urllib2.HTTPError as e:
-                    self.logger.error('Encountered an error while downloading %s', e.strerror)
+                        with open(os.path.join(part_path, 'index.html'), 'w') as text_file:
+                            text_file.write(html)
+                    except urllib2.HTTPError as e:
+                        self.logger.error('Encountered an error while downloading %s', e.strerror)
+                    except urllib2.URLError as e:
+                        self.logger.error('Encountered an error while downloading %s', e.strerror)
+                except TypeError as e:
+                    continue
 
 
     def run(self):
