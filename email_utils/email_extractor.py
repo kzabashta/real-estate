@@ -111,14 +111,13 @@ class EmailExtractor:
                     try:
                         response = urllib2.urlopen(link_path)
                         html = response.read()
-
                         with open(os.path.join(part_path, 'index.html'), 'w') as text_file:
                             text_file.write(html)
                     except urllib2.HTTPError as e:
                         self.logger.error('Encountered an error while downloading %s', e.strerror)
                     except urllib2.URLError as e:
                         self.logger.error('Encountered an error while downloading %s', e.strerror)
-                except TypeError as e:
+                except:
                     continue
 
 

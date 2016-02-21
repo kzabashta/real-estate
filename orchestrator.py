@@ -23,16 +23,16 @@ def main():
 	scraper = Scraper()
 
 	for dirName, subdirList, fileList in os.walk(DEST_DIR_NAME):
-	    for fName in fileList:
-	    	if not fName.endswith('.html'):
-	    		continue
-	    	fullPath = os.path.join(dirName, fName)
-	    	if collection.find_one({'path': fullPath}) == None:
-	    		collection.insert_one({'path': fullPath})    		
-		    	with open(fullPath, 'r') as fHandle:
-		    		logger.info('Procesing %s', fullPath)
-		    		html_doc = fHandle.read().replace('\n', '')
-		    		scraper.scrape(html_doc, fullPath)
+		for fName in fileList:
+			if not fName.endswith('.html'):
+				continue
+			fullPath = os.path.join(dirName, fName)
+			if collection.find_one({'path': fullPath}) == None:
+				collection.insert_one({'path': fullPath})
+				with open(fullPath, 'r') as fHandle:
+					logger.info('Procesing %s', fullPath)
+					html_doc = fHandle.read().replace('\n', '')
+					scraper.scrape(html_doc, fullPath)
 
 if __name__ == '__main__':
 	main()
