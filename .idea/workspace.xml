@@ -2,9 +2,112 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b40d2d8e-9e1a-438e-9fa9-58b79a3ae945" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/.bowerrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/.buildignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/.editorconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/.gitattributes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/.yo-rc.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/Gruntfile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/.htaccess" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/.jshintrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/account/account.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/account/login/login.controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/account/login/login.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/account/login/login.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/account/settings/settings.controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/account/settings/settings.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/account/signup/signup.controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/account/signup/signup.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/admin/admin.controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/admin/admin.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/admin/admin.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/admin/admin.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/app.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/d3Service/d3Service.service.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/d3Service/d3Service.service.spec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/lineChart/lineChart.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/lineChart/lineChart.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/lineChart/lineChart.directive.spec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/listing_detail/listing_detail.controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/listing_detail/listing_detail.controller.spec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/listing_detail/listing_detail.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/listing_detail/listing_detail.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/listing_detail/listing_detail.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/listing_viz/listing_viz.controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/listing_viz/listing_viz.controller.spec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/listing_viz/listing_viz.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/listing_viz/listing_viz.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/listing_viz/listing_viz.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/main/main.controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/main/main.controller.spec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/main/main.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/main/main.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/main/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/multiLineChart/multiLineChart.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/multiLineChart/multiLineChart.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/multiLineChart/multiLineChart.directive.spec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/multiLineChart/multiLineChart.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/scenarios/scenarios.controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/scenarios/scenarios.controller.spec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/scenarios/scenarios.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/scenarios/scenarios.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/app/scenarios/scenarios.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/assets/images/yeoman.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/components/auth/auth.service.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/components/auth/user.service.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/components/modal/modal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/components/modal/modal.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/components/modal/modal.service.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/components/mongoose-error/mongoose-error.directive.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/components/navbar/navbar.controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/components/navbar/navbar.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/components/socket/socket.mock.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/components/socket/socket.service.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/client/robots.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/e2e/main/main.po.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/e2e/main/main.spec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/karma.conf.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/protractor.conf.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/.jshintrc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/.jshintrc-spec" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/api/raw/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/api/raw/raw.controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/api/raw/raw.model.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/api/raw/raw.socket.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/api/raw/raw.spec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/api/thing/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/api/thing/thing.controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/api/thing/thing.model.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/api/thing/thing.socket.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/api/thing/thing.spec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/api/user/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/api/user/user.controller.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/api/user/user.model.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/api/user/user.model.spec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/auth/auth.service.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/auth/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/auth/local/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/auth/local/passport.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/components/errors/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/config/environment/development.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/config/environment/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/config/environment/production.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/config/environment/test.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/config/express.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/config/local.env.sample.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/config/seed.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/config/socketio.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/routes.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/server/views/404.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/email_utils/email_extractor.py" afterPath="$PROJECT_DIR$/email_utils/email_extractor.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/orchestrator.py" afterPath="$PROJECT_DIR$/orchestrator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/.gitignore" afterPath="$PROJECT_DIR$/web/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/.travis.yml" afterPath="$PROJECT_DIR$/web/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/package.json" afterPath="$PROJECT_DIR$/web/package.json" />
     </list>
     <ignored path="real-estate.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,7 +153,7 @@
       <file leaf-file-name="scraper.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parser/scraper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-49.444443">
+            <state vertical-scroll-proportion="0.0">
               <caret line="92" column="35" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
@@ -62,8 +165,8 @@
       <file leaf-file-name="orchestrator.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/orchestrator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6363636">
-              <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.4366812">
+              <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -116,6 +219,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -165,7 +269,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -296,6 +399,9 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b40d2d8e-9e1a-438e-9fa9-58b79a3ae945" name="Default" comment="" />
@@ -307,9 +413,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="43" width="1400" height="784" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -328,6 +434,14 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -336,6 +450,72 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/email_utils/email_extractor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="125" column="28" selection-start-line="125" selection-start-column="28" selection-end-line="125" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parser/scraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="92" column="35" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/email_utils/email_extractor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="125" column="28" selection-start-line="125" selection-start-column="28" selection-end-line="125" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parser/scraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="92" column="35" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/orchestrator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -374,7 +554,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/parser/scraper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-49.444443">
+        <state vertical-scroll-proportion="0.0">
           <caret line="92" column="35" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
@@ -384,8 +564,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/orchestrator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6363636">
-          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.4366812">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>

@@ -14,6 +14,7 @@
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
       <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+      <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -22,6 +23,7 @@
       <link rel="stylesheet" href="app/account/login/login.css">
       <link rel="stylesheet" href="app/admin/admin.css">
       <link rel="stylesheet" href="app/app.css">
+      <link rel="stylesheet" href="app/heat/heat.css">
       <link rel="stylesheet" href="app/lineChart/lineChart.css">
       <link rel="stylesheet" href="app/listing_detail/listing_detail.css">
       <link rel="stylesheet" href="app/listing_viz/listing_viz.css">
@@ -86,6 +88,8 @@
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/angular-socket-io/socket.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
+      <script src="bower_components/leaflet.heat/dist/leaflet-heat.js"></script>
       <!-- endbower -->
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
@@ -101,6 +105,8 @@
           <script src="app/admin/admin.controller.js"></script>
           <script src="app/admin/admin.js"></script>
           <script src="app/d3Service/d3Service.service.js"></script>
+          <script src="app/heat/heat.controller.js"></script>
+          <script src="app/heat/heat.js"></script>
           <script src="app/lineChart/lineChart.directive.js"></script>
           <script src="app/listing_detail/listing_detail.controller.js"></script>
           <script src="app/listing_detail/listing_detail.js"></script>
