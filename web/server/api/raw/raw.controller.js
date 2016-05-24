@@ -31,9 +31,9 @@ exports.aggregate_sales = function(req, res){
       Raw.aggregate(
         [
           {
-            $match : { 
+            $match : {
               municipality : {$in: topMunicipalities },
-              sold_date:{$gte:new Date("Sept 1, 2015")}
+              sold_date:{$gte:new Date("Feb 1, 2016")}
             }
           },
           {
@@ -45,8 +45,8 @@ exports.aggregate_sales = function(req, res){
             {
             $group : {
                _id : "$_id.sold_date",
-                municipality: { 
-                    "$push": { 
+                municipality: {
+                    "$push": {
                         "municipality": "$_id.municipality",
                         "count": "$soldCount",
                         "price": "$totalPrice"

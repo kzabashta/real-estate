@@ -54,6 +54,10 @@ angular.module('webApp')
               .append("g")
               .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+          scope.$watch('data', function() {
+            redraw(scope.data);
+          });
+
           d3.select(window).on('resize', resize);
             function resize() {
               width = parseInt(d3.select(element[0].parentElement).style('width')) - margin.left - margin.right;
@@ -84,13 +88,17 @@ angular.module('webApp')
             render(scope.data);
 
             function redraw(data){
-              /**data.forEach(function(d) {
-                d.date = format.parse(d.date);
-                d.value = +d.value;
-              });**/
               var layers = stack(nest.entries(data));
+
               x.domain(d3.extent(data, function(d) { return d.date; }));
               y.domain([0, d3.max(data, function(d) { return d.y0 + d.y; })]);
+
+              svg.selectAll(".layer")
+                  .data(layers)
+                .enter().append("path")
+                  .attr("class", "layer")
+                  .attr("d", function(d) { return area(d.values); })
+                  .style("fill", function(d, i) { return z(i); });
 
               svg.selectAll(".layer")
                 .data(layers)
@@ -103,7 +111,7 @@ angular.module('webApp')
                 });
 
               svg.select(".x.axis")
-                .attr('transform', 'translate(0,' + height + ')') 
+                .attr('transform', 'translate(0,' + height + ')')
                 .call(xAxis);
 
               svg.select(".y.axis")
