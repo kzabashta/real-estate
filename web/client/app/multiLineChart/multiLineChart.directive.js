@@ -36,7 +36,7 @@ angular.module('webApp')
           	d3.select("svg").remove();
           	if(!data)
           		return;
-			var margin = {top: 20, right: 80, bottom: 50, left: 50},
+			var margin = {top: 20, right: 80, bottom: 50, left: 150},
 			    width = 960 - margin.left - margin.right,
 			    height = 500 - margin.top - margin.bottom;
 
@@ -95,7 +95,7 @@ angular.module('webApp')
 			  		var val = {date: d.date, temperature: 0}
 			  		d.municipality.forEach(function(muni){
 			  			if(muni.municipality === name)
-			  				val.temperature = muni.count;
+			  				val.temperature = muni.price;
 			  		});
 			  		values.push(val);
 			  	});
